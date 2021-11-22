@@ -1,5 +1,5 @@
 
-
+from main import capture
 import cv2
 from face_detector import get_face_detector, find_faces
 from face_landmarks import get_landmark_model, detect_marks, draw_marks
@@ -11,8 +11,8 @@ d_outer = [0]*5
 inner_points = [[61, 67], [62, 66], [63, 65]]
 d_inner = [0]*3
 font = cv2.FONT_HERSHEY_SIMPLEX 
-cap = cv2.VideoCapture(0)
-
+cap = capture
+mouthOpenCount = 0
 while(True):
     ret, img = cap.read()
     rects = find_faces(img, face_model)
@@ -49,6 +49,7 @@ while(True):
                 cnt_inner += 1
         if cnt_outer > 3 and cnt_inner > 2:
             print('Mouth open')
+            mouthOpenCount +=1
             cv2.putText(img, 'Mouth open', (30, 30), font,
                     1, (0, 255, 255), 2)
         # show the output image with the face detections + facial landmarks

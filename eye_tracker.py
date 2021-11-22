@@ -1,11 +1,11 @@
 
-
+from main import capture
 import cv2
 import numpy as np
 from face_detector import get_face_detector, find_faces
 from face_landmarks import get_landmark_model, detect_marks
 
-
+tracked_eye = []
 def eye_on_mask(mask, side, shape):
    
     points = [shape[i] for i in side]
@@ -60,12 +60,15 @@ def print_eye_pos(img, left, right):
     if left == right and left != 0:
         text = ''
         if left == 1:
+            tracked_eye.append('Eye_left')
             print('Looking left')
             text = 'Looking left'
         elif left == 2:
+            tracked_eye.append('Eye_right')
             print('Looking right')
             text = 'Looking right'
         elif left == 3:
+            tracked_eye.append('Eye_up')
             print('Looking up')
             text = 'Looking up'
         font = cv2.FONT_HERSHEY_SIMPLEX 
@@ -77,7 +80,7 @@ landmark_model = get_landmark_model()
 left = [36, 37, 38, 39, 40, 41]
 right = [42, 43, 44, 45, 46, 47]
 
-cap = cv2.VideoCapture(0)
+cap = capture
 ret, img = cap.read()
 thresh = img.copy()
 

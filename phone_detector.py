@@ -2,7 +2,7 @@
 import tensorflow as tf
 import numpy as np
 import cv2
-
+from main import capture
 from tensorflow.keras import Model
 from tensorflow.keras.layers import (
     Add,
@@ -268,8 +268,8 @@ def weights_download(out='models/yolov3.weights'):
 yolo = YoloV3()
 load_darknet_weights(yolo, 'models/yolov3.weights') 
 
-cap = cv2.VideoCapture(0)
-
+cap = capture
+ mobile_detection = False
 
 while(True):
     ret, image = cap.read()
@@ -288,10 +288,8 @@ while(True):
             count +=1
         if int(classes[0][i] == 67):
             print('Mobile Phone detected')
-    if count == 0:
-        print('No person detected')
-    elif count > 1: 
-        print('More than one person detected')
+            mobile_detection = True
+    
         
     image = draw_outputs(image, (boxes, scores, classes, nums), class_names)
 
