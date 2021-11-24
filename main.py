@@ -579,7 +579,7 @@ def headPoseEstimator(capture):
                 
                 if ang2 >= 48:
                     print('Head right')
-                    tracked_head.append('Head_Right)
+                    tracked_head.append('Head_Right')
                     cv2.putText(img, 'Head right', (90, 30), font, 2, (255, 255, 128), 3)
                 elif ang2 <= -48:
                     print('Head left')
