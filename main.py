@@ -668,10 +668,18 @@ def sendMail():
 
 #sendMail()
 
-eyeTracker()
-headPoseEstimator()
-mobileDetector()
-mouthMovement()
+if __name__ == "__main__":
+    p1 = Process(target = eyeTracker(capture))
+    p2 = Process(target = head_pose_points(capture))
+    p1.start()
+    p2.start()
+    p1.join()
+    p2.join()
+
+# eyeTracker(cap)
+# headPoseEstimator()
+# mobileDetector()
+# mouthMovement()
 
 
 
