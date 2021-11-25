@@ -668,16 +668,13 @@ def sendMail():
 
 #sendMail()
 
-print(eyeTracker.tracked_eye)
-print(headPoseEstimator.tracked_head)
-print(mobileDetector.mobile_detection)
-print(mouthMovement.mouthOpenCount)
+eyeTracker()
+headPoseEstimator()
+mobileDetector()
+mouthMovement()
 
 
-'''
 
-
-'''
 
 cap.release()
 cv2.destroyAllWindows()
