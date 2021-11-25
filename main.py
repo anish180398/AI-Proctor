@@ -666,7 +666,7 @@ def sendMail():
         server.login(sender_email, password)
         server.sendmail(sender_email, receiver_email, message)
 
-sendMail()
+#sendMail()
 
 print(eyeTracker.tracked_eye)
 print(headPoseEstimator.tracked_head)
