@@ -668,6 +668,7 @@ def sendMail():
 
 #sendMail()
 
+<<<<<<< Updated upstream
 if __name__ == "__main__":
     p1 = Process(target = eyeTracker(capture))
     p2 = Process(target = headPoseEstimator(capture))
@@ -680,6 +681,12 @@ if __name__ == "__main__":
 # headPoseEstimator()
 # mobileDetector()
 # mouthMovement()
+=======
+eyeTracker(capture)
+headPoseEstimator(capture)
+mobileDetector(capture)
+mouthMovement(capture)
+>>>>>>> Stashed changes
 
 
 
