@@ -1,4 +1,4 @@
-import multiprocessing import Process
+from multiprocessing import Process
 import smtplib, ssl
 import cv2
 import math
@@ -670,7 +670,7 @@ def sendMail():
 
 if __name__ == "__main__":
     p1 = Process(target = eyeTracker(capture))
-    p2 = Process(target = head_pose_points(capture))
+    p2 = Process(target = headPoseEstimator(capture))
     p1.start()
     p2.start()
     p1.join()
