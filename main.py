@@ -668,28 +668,23 @@ def sendMail():
 
 #sendMail()
 
-<<<<<<< Updated upstream
-if __name__ == "__main__":
-    p1 = Process(target = eyeTracker(capture))
-    p2 = Process(target = headPoseEstimator(capture))
-    p1.start()
-    p2.start()
-    p1.join()
-    p2.join()
 
-# eyeTracker(cap)
-# headPoseEstimator()
-# mobileDetector()
-# mouthMovement()
-=======
+# if __name__ == "__main__":
+#     p1 = Process(target = eyeTracker(capture))
+#     p2 = Process(target = headPoseEstimator(capture))
+#     p1.start()
+#     p2.start()
+#     p1.join()
+#     p2.join()
+
 eyeTracker(capture)
 headPoseEstimator(capture)
 mobileDetector(capture)
-mouthMovement(capture)
->>>>>>> Stashed changes
+#mouthMovement(capture)
 
 
 
 
-cap.release()
+
+capture.release()
 cv2.destroyAllWindows()
